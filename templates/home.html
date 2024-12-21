@@ -1,0 +1,62 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <h1 class="text-center">Chào mừng đến với Plant Care</h1>
+        <h3 class="text-center">Giả lập vị trí các cây trồng theo Cụm</h3>
+    </div>
+    <div class="row">
+        {% for cluster, trees in grouped_trees.items %}
+        <div class="col-md-4">
+            <div class="cluster-box ">
+                <h4 class="text-center">{{ cluster }}</h4>
+                <div class="tree-grid">
+                    {% for tree in trees %}
+                    <div class="tree-cell {% if tree.Status == 'OFF' %}off{% endif %}">
+                        ID: {{ tree.id }}
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<style>
+    .cluster-box {
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin-bottom: 20px;
+        background-color: #f9f9f9;
+        border-radius: 5px;
+        width: 100%;
+    }
+
+    .tree-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+        gap: 10px;
+    }
+
+    .tree-cell {
+        border: 1px solid #000;
+        padding: 5px;
+        text-align: center;
+        background-color: #e7ffe7; /* Màu mặc định là xanh nhạt */
+        border-radius: 3px;
+        font-size: 12px;
+    }
+
+    .tree-cell.off {
+        background-color: #ffcccc; /* Màu đỏ nhạt nếu trạng thái là "off" */
+    }
+
+    .tree-cell:hover {
+        background-color: #d1ffd1;
+        cursor: pointer;
+    }
+</style>
+{% endblock content %}

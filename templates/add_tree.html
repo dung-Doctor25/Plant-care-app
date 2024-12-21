@@ -1,0 +1,80 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h3 class="text-center">Thêm Cây Trồng Mới</h3>
+            <form method="POST" action="">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="SoilMoisture">Độ ẩm đất:</label>
+                    <input type="number" step="0.01" class="form-control" id="SoilMoisture" name="SoilMoisture" required>
+                </div>
+                <div class="form-group">
+                    <label for="Temperature">Nhiệt độ:</label>
+                    <input type="number" step="0.01" class="form-control" id="Temperature" name="Temperature" required>
+                </div>
+                <div class="form-group">
+                    <label for="SoilHumidity">Độ ẩm đất:</label>
+                    <input type="number" step="0.01" class="form-control" id="SoilHumidity" name="SoilHumidity" required>
+                </div>
+                <div class="form-group">
+                    <label for="Time">Thời gian:</label>
+                    <input type="number" class="form-control" id="Time" name="Time" required>
+                </div>
+                <div class="form-group">
+                    <label for="AirTemperature">Nhiệt độ không khí:</label>
+                    <input type="number" step="0.01" class="form-control" id="AirTemperature" name="AirTemperature" required>
+                </div>
+                <div class="form-group">
+                    <label for="WindSpeed">Tốc độ gió:</label>
+                    <input type="number" step="0.01" class="form-control" id="WindSpeed" name="WindSpeed" required>
+                </div>
+                <div class="form-group">
+                    <label for="Airhumidity">Độ ẩm không khí:</label>
+                    <input type="number" step="0.01" class="form-control" id="Airhumidity" name="Airhumidity" required>
+                </div>
+                <div class="form-group">
+                    <label for="Windgust">Cơn gió mạnh:</label>
+                    <input type="number" step="0.01" class="form-control" id="Windgust" name="Windgust" required>
+                </div>
+                <div class="form-group">
+                    <label for="Pressure">Áp suất:</label>
+                    <input type="number" step="0.01" class="form-control" id="Pressure" name="Pressure" required>
+                </div>
+                <div class="form-group">
+                    <label for="ph">Độ pH:</label>
+                    <input type="number" step="0.01" class="form-control" id="ph" name="ph" required>
+                </div>
+                <div class="form-group">
+                    <label for="rainfall">Lượng mưa:</label>
+                    <input type="number" step="0.01" class="form-control" id="rainfall" name="rainfall" required>
+                </div>
+                <div class="form-group">
+                    <label for="N">N:</label>
+                    <input type="number" class="form-control" id="N" name="N" required>
+                </div>
+                <div class="form-group">
+                    <label for="P">P:</label>
+                    <input type="number" class="form-control" id="P" name="P" required>
+                </div>
+                <div class="form-group">
+                    <label for="K">K:</label>
+                    <input type="number" class="form-control" id="K" name="K" required>
+                </div>
+                <div class="form-group">
+                    <label for="Status">Trạng thái:</label>
+                    <select class="form-control" id="Status" name="Status">
+                        <option value="ON">ON</option>
+                        <option value="OFF">OFF</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-success btn-block mt-3">Thêm Cây</button>
+                <a href="/" class="btn btn-danger btn-block mt-3 ">Hủy</a>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}

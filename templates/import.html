@@ -1,0 +1,10 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+
+ <form method="POST" enctype="multipart/form-data">
+    {% csrf_token %} 
+    <input type="file" name="file">
+    <button type="submit">Lưu file</button>
+</form>
+{% endblock content%}
